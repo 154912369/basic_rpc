@@ -1,0 +1,27 @@
+syntax = "proto2";
+package tutorial; 
+option cc_generic_services = true;
+message Request {
+   required string name = 1;
+   required int32 id = 2;
+   optional string email= 3;
+};
+
+ 
+
+message Response {
+
+   repeated string result = 1;
+
+};
+
+message ResponseOther {
+
+   repeated string other = 1;
+
+};
+service TestController {
+   rpc send(Request) returns (Response);
+
+   rpc echo(Request) returns (ResponseOther);
+};
